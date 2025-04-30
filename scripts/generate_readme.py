@@ -1,5 +1,6 @@
-# SPDX-License-Identifier: MIT
-# Copyright (c) 2025 HEG Geneva / Deep Mining Lab / FairOnChain / EtherFAIR
+# SPDX-License-Identifier: CC-BY-4.0
+# © 2025 HEG Geneva / Deep Mining Lab / FairOnChain / Open Price ETH
+
 import os
 from datetime import datetime, timezone
 from jinja2 import Environment, FileSystemLoader
@@ -16,7 +17,9 @@ data_info = {
     "chainlink": {
         "path": "../data/chainlink_eth_usd.csv",
     },
-    # Uniswap ici
+    "uniswap": {
+        "path": "../data/uniswap_eth_usd.csv",
+    },
 }
 
 context = {}

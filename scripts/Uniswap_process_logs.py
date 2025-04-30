@@ -1,5 +1,6 @@
-# SPDX-License-Identifier: MIT
-# Copyright (c) 2025 HEG Geneva / Deep Mining Lab / FairOnChain / EtherFAIR
+# SPDX-License-Identifier: CC-BY-4.0
+# © 2025 HEG Geneva / Deep Mining Lab / FairOnChain / Open Price ETH
+
 import pandas as pd
 from web3 import Web3
 from datetime import datetime
