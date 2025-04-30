@@ -1,0 +1,8 @@
+web3>=6.0.0          # Ethereum RPC client
+pandas>=1.5.0        # Dataframe operations
+mpmath>=1.2.1        # High-precision math
+pytz>=2023.3         # Timezone support
+
+Jinja2>=3.1.0        # For README generation
+
+# (Built-in libraries: csv, datetime, os, glob)
