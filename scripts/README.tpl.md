@@ -5,9 +5,9 @@ EtherFAIR is an open-data initiative providing a standardized, continuously upda
 
 ## 📅 Available Datasets
 
-| Dataset               | Start Date Available       | End Date Available           | CSV File                                          | Extraction Script              |
-|-----------------------|----------------------------|---------------------------   |---------------------------------------------------|--------------------------------|
-| **Chainlink ETH/USD** | 2020-08-06 23:16:56 UTC    | 2025-04-23 11:28:13 UTC      | `data/chainlink_eth_usd.csv`                      | `scripts/chainlink_dicho.py`   |
+| Dataset               | Start Date Available       | End Date Available                   | CSV File                                          | Extraction Script              |
+|-----------------------|----------------------------|--------------------------------------|---------------------------------------------------|--------------------------------|
+| **Chainlink ETH/USD** | 2020-08-07 11:28:13 UTC    | {{ chainlink.extraction ~ "      " }}| `data/chainlink_eth_usd.csv`                      | `scripts/chainlink_dicho.py`   |
 
 Extraction date and time are taken from the CSV file’s last modification timestamp.
 
@@ -33,6 +33,12 @@ This file contains hourly Ether prices in USD from the Chainlink oracle on the E
 
 We use a Jinja2 template plus a Python script to inject the extraction date automatically based on the CSV’s last-modified timestamp
 
-1. **Install dependencies**  
-   ```bash
+**Install dependencies**  
    pip install jinja2
+
+---
+
+## 🧾 License
+
+This project is licensed under the MIT License (./LICENSE)
+You are free to use, modify, distribute the source code and the data associated  
