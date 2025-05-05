@@ -7,7 +7,7 @@ from datetime import datetime, UTC
 
 RPC_URL = 'https://eth.rpc.faironchain.org/'
 CONTRACT_ADDRESS = '0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419' # Contrat Chainlink pour la pair ETH/USD sur Ethereum Mainnet
-FILENAME = "chainlink_eth_usd.csv"
+FILENAME = "data/chainlink_eth_usd.csv"
 
 TIMESTAMP_DEBUT = 00000      # 1 janvier 1970 00:00:00
 TIMESTAMP_FIN   = 1744617787 # 14 avril 2025 10:03

@@ -4,43 +4,149 @@
   <meta charset="UTF-8">
   <title>Open Price ETH Datasets</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+
   <!-- Schema.org JSON-LD for Chainlink ETH/USD -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
     "@type": "Dataset",
     "name": "Chainlink ETH/USD Price History",
+    "alternateName": ["ETH-USD Price History", "Chainlink Oracle History"],
     "description": "Historical ETH/USD prices from Chainlink Oracle on Ethereum Mainnet.",
-    "url": "https://filebrowser",
+    "url": "https://files.deepmining.ch/files/prices/chainlink_eth_usd.csv",
     "keywords": ["Ethereum","ETH","USD","Chainlink","Oracle","Crypto","FairOnChain"],
     "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": {
+      "@type": "Organization",
+      "name": "FairOnChain",
+      "url": "https://faironchain.org"
+    },
+    "isAccessibleForFree": true,
     "distribution": {
       "@type": "DataDownload",
-      "contentUrl": "https://filebrowser",
+      "contentUrl": "https://files.deepmining.ch/files/prices/chainlink_eth_usd.csv",
       "encodingFormat": "text/csv"
     }
   }
   </script>
 
-  <!-- Schema.org JSON-LD for Uniswap ETH/USD -->
+  <!-- Schema.org JSON-LD for Uniswap ETH/USDC -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org/",
     "@type": "Dataset",
-    "name": "Uniswap V3 ETH/USD Price History",
-    "description": "Historical ETH/USD prices from Uniswap V3 pool on Ethereum.",
-    "url": "https://filebrowser",
-    "keywords": ["Ethereum","ETH","USD","Uniswap","DeFi","Pool","FairOnChain"],
+    "name": "Uniswap V3 ETH/USDC Price History",
+    "alternateName": ["ETH-USDC Price History", "Uniswap V3 Price History"],
+    "description": "Historical ETH/USDC prices from Uniswap V3 pool on Ethereum.",
+    "url": "https://files.deepmining.ch/files/prices/uniswap_eth_usd.csv",
+    "keywords": ["Ethereum","ETH","USDC","Uniswap","DeFi","Pool","FairOnChain"],
     "license": "https://creativecommons.org/licenses/by/4.0/",
+    "creator": {
+      "@type": "Organization",
+      "name": "FairOnChain",
+      "url": "https://faironchain.org"
+    },
+    "isAccessibleForFree": true,
     "distribution": {
       "@type": "DataDownload",
-      "contentUrl": "https://filebrowser",
+      "contentUrl": "https://files.deepmining.ch/files/prices/uniswap_eth_usd.csv",
       "encodingFormat": "text/csv"
     }
   }
   </script>
+
+  <style>
+    body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    header {
+      background: #fff;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      color: #0a2540;
+      font-weight: 600;
+    }
+
+    /* Liste de datasets */
+    .dataset-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .dataset-list li {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #eeeeee;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .dataset-list a {
+      color: #0055a5;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .dataset-list a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      margin: 60px 0;
+      font-size: 0.9rem;
+    }
+  </style>
+
 </head>
 <body>
-  
+
+  <header>
+      <a href="https://www.faironchain.org/">
+        <img src="logo.png" alt="FairOnChain Logo" style="height:70px; ">
+      </a>
+  </header>
+
+  <div class="container">
+    <h1>Open Price ETH Datasets</h1>
+    <ul class="dataset-list">
+      <li>
+        <h2>
+          <a href="https://files.deepmining.ch/files/prices/chainlink_eth_usd.csv">
+            Chainlink ETH/USD Price History
+          </a>
+        </h2>
+        <p>Historical ETH/USD prices from Chainlink Oracle on Ethereum Mainnet.</p>
+      </li>
+      <li>
+        <h2>
+          <a href="https://files.deepmining.ch/files/prices/uniswap_eth_usd.csv">
+            Uniswap V3 ETH/USDC Price History
+          </a>
+        </h2>
+        <p>Historical ETH/USDC prices from Uniswap V3 pool on Ethereum.</p>
+      </li>
+    </ul>
+  </div>
+
+  <footer>
+    <strong>FairOnChain</strong>
+    <span class = "blue">©</span>
+    2025
+  </footer>
+
 </body>
 </html>

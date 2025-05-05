@@ -15,6 +15,8 @@ mp.dps = 50  # Applique une haute précision pour les calculs décimaux
 RPC_URL = 'https://eth.rpc.faironchain.org/'
 EXPECTED_TOPIC0 = "0xc42079f94a6350d7e6235f29174924f928cc2ac818eb64fed8004e115fbcca67" # Event Swap
 
+csv_files = glob.glob('data/output/*.csv') # Récupération de tous les fichiers CSV du dossier output
+
 def decode_swap_event(data_hex):
     """
     Décode les données de l'événement Swap depuis le format hex
@@ -188,12 +190,10 @@ def process_uniswap_logs(csv_path, web3):
         print(f"Erreur générale dans process_uniswap_logs: {e}")
         return pd.DataFrame()
 
-def main(output_file='1_eth_usdc_prices.csv'):
+def main(output_file='uniswap_eth_usd.csv'):
     """
     Fonction principale pour traiter tous les fichiers CSV du dossier output
     """
-    # Récupération de tous les fichiers CSV du dossier output
-    csv_files = glob.glob('output/*.csv')
     
     if not csv_files:
         print("Aucun fichier CSV trouvé dans le dossier 'output'")

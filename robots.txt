@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://github.com/SteBuilds/Open_Price_ETH/blob/main/sitemap.xml
