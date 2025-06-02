@@ -1,17 +1,31 @@
 # SPDX-License-Identifier: CC-BY-4.0
-# © 2025 HEG Geneva / Deep Mining Lab / FairOnChain / Open Price ETH
+# © 2025 HES-SO / HEG Geneva / Deep Mining Lab / FairOnChain / Open Price ETH
 
 import csv
+import time
+import argparse
 from web3 import Web3
 from datetime import datetime, UTC
 
-RPC_URL = 'https://eth.rpc.faironchain.org/'
+# Définir l'argument début
+parser = argparse.ArgumentParser(description="Timestamp de début.")
+parser.add_argument(
+    "--debut",
+    type=int,
+    required=True,
+    help="Timestamp UNIX de début (ex. 1744610424)."
+)
+args = parser.parse_args()
+
+RPC_URL = 'https://ethereum-rpc.publicnode.com'
 CONTRACT_ADDRESS = '0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419' # Contrat Chainlink pour la pair ETH/USD sur Ethereum Mainnet
-FILENAME = "data/chainlink_eth_usd.csv"
+FILENAME = "data/chainlink_eth_usd_last.csv"
 
-TIMESTAMP_DEBUT = 00000      # 1 janvier 1970 00:00:00
-TIMESTAMP_FIN   = 1744617787 # 14 avril 2025 10:03
+TIMESTAMP_DEBUT = args.debut        # Timestamp de début
+TIMESTAMP_FIN   = int(time.time())  # timestamp actuel
 
+if TIMESTAMP_DEBUT > TIMESTAMP_FIN:
+    parser.error("Le paramètre --debut doit être inférieur ou égal au timestamp actuel !")
 
 def convertir_timestamp(ts: int) -> str:
     """

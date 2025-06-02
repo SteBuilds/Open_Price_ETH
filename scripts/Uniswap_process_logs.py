@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: CC-BY-4.0
-# © 2025 HEG Geneva / Deep Mining Lab / FairOnChain / Open Price ETH
+# © 2025 HES-SO / HEG Geneva / Deep Mining Lab / FairOnChain / Open Price ETH
 
 import pandas as pd
 from web3 import Web3
@@ -12,10 +12,19 @@ import pytz
 mp.dps = 50  # Applique une haute précision pour les calculs décimaux
 
 # Constants
-RPC_URL = 'https://eth.rpc.faironchain.org/'
+RPC_URL = 'https://ethereum-rpc.publicnode.com'
 EXPECTED_TOPIC0 = "0xc42079f94a6350d7e6235f29174924f928cc2ac818eb64fed8004e115fbcca67" # Event Swap
 
-csv_files = glob.glob('data/output/*.csv') # Récupération de tous les fichiers CSV du dossier output
+# dossier où est ce script
+here = os.path.dirname(__file__)
+# on remonte d'un niveau, puis on va dans data/output
+data_dir = os.path.join(here, os.pardir, 'data', 'output')
+# on normalise le chemin pour être sûr que tout est correct
+data_dir = os.path.normpath(data_dir)
+# on recherche les CSV
+pattern = os.path.join(data_dir, '*.csv')
+csv_files = glob.glob(pattern)
+# csv_files = glob.glob('data/output/*.csv') # Récupération de tous les fichiers CSV du dossier output
 
 def decode_swap_event(data_hex):
     """
@@ -190,7 +199,7 @@ def process_uniswap_logs(csv_path, web3):
         print(f"Erreur générale dans process_uniswap_logs: {e}")
         return pd.DataFrame()
 
-def main(output_file='uniswap_eth_usd.csv'):
+def main(output_filename='uniswap_eth_usd_last.csv'):
     """
     Fonction principale pour traiter tous les fichiers CSV du dossier output
     """
@@ -218,9 +227,18 @@ def main(output_file='uniswap_eth_usd.csv'):
         print("Aucune donnée n'a été traitée.")
         return None
     
+
+    # Construction du chemin vers le dossier `data/`
+    here2 = os.path.dirname(__file__)
+    data_dir2 = os.path.normpath(os.path.join(here2, os.pardir, 'data'))
+    output_path = os.path.join(data_dir2, output_filename)
+
+    all_prices.to_csv(output_path, index=False)
+
     # Export au format CSV
-    all_prices.to_csv(output_file, index=False)
-    print(f"\nFichier CSV créé: {output_file}")
+    # all_prices.to_csv(output_file, index=False)
+
+    print(f"\nFichier CSV créé: {output_path}")
     print(f"Nombre total d'événements traités: {len(all_prices)}")
     
     return all_prices
