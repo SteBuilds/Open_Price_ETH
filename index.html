@@ -58,77 +58,62 @@
     }
   }
   </script>
-
+  
   <style>
-    body {
+    html, body {
       height: 100%;
       margin: 0;
       display: flex;
-      flex-direction: column;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-    }
-
-    header {
-      background: #fff;
-      padding: 20px;
     }
 
     .container {
+      flex: 1;
       max-width: 800px;
       margin: 40px auto;
       padding: 0 20px;
     }
 
-    h1 {
-      color: #0a2540;
-      font-weight: 600;
-    }
-
     /* Liste de datasets */
     .dataset-list {
       list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .dataset-list li {
-      margin-bottom: 20px;
-      padding: 15px;
-      border: 1px solid #eeeeee;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    .dataset-list a {
-      color: #0055a5;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .dataset-list a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
       margin: 60px 0;
       font-size: 0.9rem;
     }
+
+    footer a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline; 
+    }
+
+     h1 a {
+      color: #000000;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    h1 a:hover {
+      text-decoration: underline;
+    }
+
   </style>
 
 </head>
-<body>
-
-  <header>
-      <a href="https://www.faironchain.org/">
-        <img src="logo.PNG" alt="FairOnChain Logo" style="height:70px; ">
-      </a>
   </header>
 
   <div class="container">
-    <h1>Open Price ETH Datasets</h1>
+    <h1>
+      <a href="https://files.deepmining.ch/files/ethereum/prices/">
+        Open Price ETH Datasets
+      </a>
+    </h1>
     <ul class="dataset-list">
       <li>
         <h2>
-          <a href="https://files.deepmining.ch/files/prices/chainlink_eth_usd.csv">
+          <a href="https://files.deepmining.ch/files/ethereum/prices/chainlink_eth_usd.csv">
             Chainlink ETH/USD Price History
           </a>
         </h2>
@@ -136,17 +121,17 @@
       </li>
       <li>
         <h2>
-          <a href="https://files.deepmining.ch/files/prices/uniswap_eth_usd.csv">
+          <a href="https://files.deepmining.ch/files/ethereum/prices/uniswap_eth_usd.csv">
             Uniswap V3 ETH/USDC Price History
           </a>
         </h2>
-        <p>Historical ETH/USDC prices from Uniswap V3 pool on Ethereum Mainnet.</p>
-      </li>
-    </ul>
   </div>
 
   <footer>
-    <strong>FairOnChain</strong>
+
+    <a href="https://www.faironchain.org/">
+      <strong>FairOnChain</strong>
+    </a>
     <span class = "blue">©</span>
     2025
   </footer>
