@@ -118,12 +118,10 @@ echo "[INFO] Traitement Chainlink terminé"
 
 # 6. Nettoyer le contenu de data/output
 echo "[INFO] Suppression du contenu de $OUTPUT_DIR"
-# rm -rf "$OUTPUT_DIR"/*
 
 if ! rm -rf "$OUTPUT_DIR"/*; then
       echo "[WARNING] Impossible de supprimer le contenu de $OUTPUT_DIR." >&2
 fi
-
 
 # 7. Concaténer uniswap_eth_usd_last.csv dans uniswap_eth_usd.csv et chainlink_eth_usd_last.csv dans chainlink_eth_usd.csv
 if [[ -f "$LAST_FILE_UNISWAP" ]]; then
