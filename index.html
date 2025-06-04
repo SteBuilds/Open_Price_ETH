@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+
   <meta name="google-site-verification" content="KaYWasxil8X4obR_0fwpMffCAg5ngAcABAKnBeDlZdE" />
+
+  <meta charset="UTF-8">
   <title>Open Price ETH Datasets</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
 
   <!-- Schema.org JSON-LD for Chainlink ETH/USD -->
   <script type="application/ld+json">
@@ -16,7 +18,7 @@
     "alternateName": ["ETH-USD Price History", "Chainlink Oracle History"],
     "description": "Historical ETH/USD prices from Chainlink Oracle on Ethereum Mainnet.",
     "url": "https://stebuilds.github.io/Open_Price_ETH/",
-    "keywords": ["Ethereum", "ETH", "USD", "Chainlink", "Oracle", "Crypto", "FairOnChain"],
+    "keywords": ["Ethereum","ETH","USD","Chainlink","Oracle","Crypto","FairOnChain"],
     "license": "https://creativecommons.org/licenses/by/4.0/",
     "creator": {
       "@type": "Organization",
@@ -41,7 +43,7 @@
     "alternateName": ["ETH-USDC Price History", "Uniswap V3 Price History"],
     "description": "Historical ETH/USDC prices from Uniswap V3 pool on Ethereum.",
     "url": "https://stebuilds.github.io/Open_Price_ETH/",
-    "keywords": ["Ethereum", "ETH", "USDC", "Uniswap", "DeFi", "Pool", "FairOnChain"],
+    "keywords": ["Ethereum","ETH","USDC","Uniswap","DeFi","Pool","FairOnChain"],
     "license": "https://creativecommons.org/licenses/by/4.0/",
     "creator": {
       "@type": "Organization",
@@ -62,6 +64,14 @@
       height: 100%;
       margin: 0;
       display: flex;
+      flex-direction: column;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    header {
+      background: #fff;
+      padding: 20px;
     }
 
     .container {
@@ -71,19 +81,25 @@
       padding: 0 20px;
     }
 
+    /* Liste de datasets */
     .dataset-list {
       list-style: none;
-      margin: 60px 0;
-      font-size: 0.9rem;
+      padding: 0;
+      margin: 0;
     }
-
-    h1 a, footer a {
-      color: #000000;
-      font-weight: 600;
+    .dataset-list li {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #eeeeee;
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .dataset-list a {
+      color: #0055a5;
       text-decoration: none;
+      font-weight: 600;
     }
-
-    h1 a:hover, footer a:hover {
+    .dataset-list a:hover {
       text-decoration: underline;
     }
 
@@ -92,10 +108,37 @@
       margin: 60px 0;
       font-size: 0.9rem;
     }
-  </style>
-</head>
 
+    footer a {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline; 
+    }
+
+     h1 a {
+      color: #000000;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    h1 a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+
+</head>
 <body>
+
+  <header>
+      <a href="https://www.faironchain.org/">
+        <img src="logo.PNG" alt="FairOnChain Logo" style="height:70px; ">
+      </a>
+  </header>
+
   <div class="container">
     <h1>
       <a href="https://files.deepmining.ch/files/ethereum/prices/">
@@ -126,7 +169,9 @@
     <a href="https://www.faironchain.org/">
       <strong>FairOnChain</strong>
     </a>
-    <span class="blue">©</span> 2025
+    <span class = "blue">©</span>
+    2025
   </footer>
+
 </body>
 </html>
