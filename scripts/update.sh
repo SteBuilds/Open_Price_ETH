@@ -35,9 +35,6 @@ OUTPUT_DIR="$PROJECT_DIR/data/output"
 LAST_FILE_UNISWAP="$PROJECT_DIR/data/uniswap_eth_usd_last.csv"
 LAST_FILE_CHAINLINK="$PROJECT_DIR/data/chainlink_eth_usd_last.csv"
 
-git checkout main
-git pull --rebase origin main
-
 # Afficher info RPC
 if [[ -z "$RPC" ]]; then
   echo "WARNING: La variable RPC n'est pas définie." >&2
@@ -165,13 +162,6 @@ if ! python3 "$PROJECT_DIR/scripts/generate_readme.py"; then
 fi
 
 echo "[INFO] Generate_readme terminé"
-
-# 10. Commit & Push du README mis-à-jour sur Github
-
-git add README.md
-git commit -m "Update data"
-
-git push origin main
 
 # Fin du script
 echo "=== Fin du script ==="
