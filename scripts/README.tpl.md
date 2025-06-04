@@ -168,11 +168,13 @@ Collect and export to `data/uniswap_eth_usd.csv` with columns:
 
 If you’d like to run the project locally via Docker, simply execute:
 
+docker pull stebuilds/open-price-eth
+
 docker run -d --name open-price-eth \
   [Optional] -e INTERVAL_DAYS=1 \
   [Optional] -e RPC="https://rpc_provider" \
   -v $(pwd)/logs:/app/logs \
-  open-price-eth
+  stebuilds/open-price-eth
 
 - **INTERVAL_DAYS (optional):**  
   - If not specified, the update will run only once.  
