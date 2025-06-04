@@ -4,6 +4,8 @@
 import csv
 import time
 import argparse
+import os
+import sys
 from web3 import Web3
 from datetime import datetime, UTC
 
@@ -17,7 +19,12 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-RPC_URL = 'https://ethereum-rpc.publicnode.com'
+# Lecture de la variable d'environnement RPC
+RPC_URL = os.environ.get("RPC", "")
+if not RPC_URL:
+    print("ERREUR: la variable d'environnement 'RPC' n'est pas définie.", file=sys.stderr)
+    sys.exit(1)
+
 CONTRACT_ADDRESS = '0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419' # Contrat Chainlink pour la pair ETH/USD sur Ethereum Mainnet
 FILENAME = "data/chainlink_eth_usd_last.csv"
 
@@ -132,6 +139,12 @@ def find_last_aggregator_id(phase: int, max_agg_id: int, target_ts: int) -> int:
 # Initialisation de la connexion Ethereum
 web3 = Web3(Web3.HTTPProvider(RPC_URL))
 
+if not web3.is_connected():
+        print(f"ERREUR: impossible de se connecter à l'endpoint RPC '{RPC_URL}'", file=sys.stderr)
+        sys.exit(1)
+
+print(f"Connexion au réseau établie: {web3.is_connected()}")
+
 checksum_addr = Web3.to_checksum_address(CONTRACT_ADDRESS)
 
 # ABI minimum pour lire latestRoundData et getRoundData
@@ -183,12 +196,6 @@ all_results = []  # Stockage des résultats
 # On boucle de la phase 1 jusqu'à la phase la plus récente
 # Une phase = une version du contrat
 for phase in range(1, latest_phase + 1):
-    
-    # Détermination du nombre maximal de rounds dans la phase
-    # if phase < latest_phase:
-    #     max_agg_id = latest_aggregator_id 
-    # else:
-    #     max_agg_id = find_max_aggregator_id(phase)
     
     max_agg_id = find_max_aggregator_id(phase)
 

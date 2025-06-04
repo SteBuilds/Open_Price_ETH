@@ -6,25 +6,27 @@ from web3 import Web3
 from datetime import datetime
 from mpmath import mp
 import os
+import sys
 import glob
 import pytz
 
 mp.dps = 50  # Applique une haute précision pour les calculs décimaux
 
+# Lecture de la variable d'environnement RPC
+RPC_URL = os.environ.get("RPC", "")
+if not RPC_URL:
+    print("ERREUR: la variable d'environnement 'RPC' n'est pas définie.", file=sys.stderr)
+    sys.exit(1)
+
 # Constants
-RPC_URL = 'https://ethereum-rpc.publicnode.com'
 EXPECTED_TOPIC0 = "0xc42079f94a6350d7e6235f29174924f928cc2ac818eb64fed8004e115fbcca67" # Event Swap
 
-# dossier où est ce script
+# gestion des chemins
 here = os.path.dirname(__file__)
-# on remonte d'un niveau, puis on va dans data/output
 data_dir = os.path.join(here, os.pardir, 'data', 'output')
-# on normalise le chemin pour être sûr que tout est correct
 data_dir = os.path.normpath(data_dir)
-# on recherche les CSV
 pattern = os.path.join(data_dir, '*.csv')
 csv_files = glob.glob(pattern)
-# csv_files = glob.glob('data/output/*.csv') # Récupération de tous les fichiers CSV du dossier output
 
 def decode_swap_event(data_hex):
     """
@@ -40,10 +42,6 @@ def decode_swap_event(data_hex):
     try:
         # Enlever le préfixe '0x' s'il existe
         data = data_hex.replace('0x', '')
-        
-        # Vérifier que la longueur de la chaîne est correcte
-        #if len(data) < 64:
-        #    raise ValueError(f"La longueur de la chaîne hexadécimale est insuffisante: {len(data)}")
 
         amount0_hex = data[0:64]            # Premier 32 octets (int256)
         amount1_hex = data[64:128]          # Deuxième 32 octets (int256)
@@ -95,7 +93,6 @@ def calculate_price(sqrtPriceX96, eth_amount, usdc_amount):
         print(f"Erreur dans calculate_price: {e}")
         print(f"sqrtPriceX96 reçu: {sqrtPriceX96}") 
         raise
-
 
 def process_uniswap_logs(csv_path, web3):
     """
@@ -214,6 +211,10 @@ def main(output_filename='uniswap_eth_usd_last.csv'):
     
     # Initialisation de la connexion Web3
     web3 = Web3(Web3.HTTPProvider(RPC_URL))
+    if not web3.is_connected():
+        print(f"ERREUR: impossible de se connecter à l'endpoint RPC '{RPC_URL}'", file=sys.stderr)
+        sys.exit(1)
+
     print(f"Connexion au réseau établie: {web3.is_connected()}")
     
     all_prices = pd.DataFrame()
@@ -234,9 +235,6 @@ def main(output_filename='uniswap_eth_usd_last.csv'):
     output_path = os.path.join(data_dir2, output_filename)
 
     all_prices.to_csv(output_path, index=False)
-
-    # Export au format CSV
-    # all_prices.to_csv(output_file, index=False)
 
     print(f"\nFichier CSV créé: {output_path}")
     print(f"Nombre total d'événements traités: {len(all_prices)}")
