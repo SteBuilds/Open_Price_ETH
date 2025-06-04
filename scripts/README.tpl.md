@@ -97,7 +97,7 @@ To modify the extraction time range, adjust the `TIMESTAMP_DEBUT` and `TIMESTAMP
 
 cryo logs \
   --address 0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640 \
-  --rpc https://eth.rpc.faironchain.org/ \
+  --rpc https://rpc_provider \
   --output-dir ./output \
   --csv \
   --timestamps <start_timestamp>:<end_timestamp>
@@ -160,12 +160,36 @@ Collect and export to `data/uniswap_eth_usd.csv` with columns:
 
 ---
 
+## 🐳 Running with Docker
+
+# Prerequisites
+
+- Docker installed on your local machine
+
+If you’d like to run the project locally via Docker, simply execute:
+
+docker run -d --name open-price-eth \
+  [Optional] -e INTERVAL_DAYS=1 \
+  [Optional] -e RPC="https://rpc_provider" \
+  -v $(pwd)/logs:/app/logs \
+  open-price-eth
+
+- **INTERVAL_DAYS (optional):**  
+  - If not specified, the update will run only once.  
+  - Otherwise, it sets how often (in days) the CSV files are updated.
+
+- **RPC (optional):**  
+  - If not specified, the public node at `https://ethereum-rpc.publicnode.com` will be used by default.  
+  - Note that this is a public node, so it has limits on the amount of data it can return.
+
+- **`-v $(pwd)/logs:/app/logs`:**  
+  - Mounts a `logs/` folder in the current directory to `/app/logs` inside the container, ensuring that all logs are kept on your host machine.  
+
+---
+
 ## 🛠️ Auto-Generating the README
 
 We use a Jinja2 template plus a Python script to inject the extraction date automatically based on the CSV’s last-modified timestamp
-
-**Install dependencies**  
-   pip install -r requirements.txt
 
 ---
 

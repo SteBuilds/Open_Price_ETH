@@ -28,8 +28,6 @@ COPY requirements.txt .
 COPY README.md .
 COPY scripts ./scripts
 COPY data ./data
-COPY .git .git
-COPY .gitignore ./
 
 # Rendre les scripts exécutables
 RUN chmod +x ./scripts/*.sh
