@@ -3,6 +3,21 @@ Open Price ETH is an open-data initiative providing a standardized, continuously
 
 ---
 
+📦 **Up-to-date Blockchain Price Data**
+
+🔗 To access the most up-to-date data, visit the repository:  
+👉 [https://github.com/DeepMining-Lab/Open_Price_Infra](https://github.com/DeepMining-Lab/Open_Price_Infra)
+
+We’ve already added support for multiple blockchains, and we’ll continue expanding over time.
+
+📥 Download ready-to-use datasets here:  
+➡️ [https://fair.deepmining.ch/](https://fair.deepmining.ch/)
+
+🐳 Want to extract the data yourself using Docker?  
+Follow the setup instructions further down in this repository.
+
+---
+
 ## 📅 Available Datasets
 
 | Dataset                | Start Date Available       | End Date Available     | CSV File                                          |

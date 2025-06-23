@@ -3,12 +3,27 @@ Open Price ETH is an open-data initiative providing a standardized, continuously
 
 ---
 
+📦 **Up-to-date Blockchain Price Data**
+
+🔗 To access the most up-to-date data, visit the repository:  
+👉 [https://github.com/DeepMining-Lab/Open_Price_Infra](https://github.com/DeepMining-Lab/Open_Price_Infra)
+
+We’ve already added support for multiple blockchains, and we’ll continue expanding over time.
+
+📥 Download ready-to-use datasets here:  
+➡️ [https://fair.deepmining.ch/](https://fair.deepmining.ch/)
+
+🐳 Want to extract the data yourself using Docker?  
+Follow the setup instructions further down in this repository.
+
+---
+
 ## 📅 Available Datasets
 
 | Dataset                | Start Date Available       | End Date Available     | CSV File                                          |
 |------------------------|----------------------------|------------------------|---------------------------------------------------|
-| **Chainlink ETH/USD**  | 2020-08-07 11:28:13 UTC    | 2025-06-04 17:37:23 UTC| `data/chainlink_eth_usd.csv`                      |    
-| **Uniswap V3 ETH/USDC**| 2021-05-05 22:15:01 UTC    | 2025-06-04 17:37:23 UTC| `data/uniswap_eth_usd.csv`                        | 
+| **Chainlink ETH/USD**  | 2020-08-07 11:28:13 UTC    | 2025-06-04 16:26:47 UTC| `data/chainlink_eth_usd.csv`                      |    
+| **Uniswap V3 ETH/USDC**| 2021-05-05 22:15:01 UTC    | 2025-06-04 17:05:47 UTC| `data/uniswap_eth_usd.csv`                        | 
 
 Extraction date and time are taken from the CSV file’s last modification timestamp.
 

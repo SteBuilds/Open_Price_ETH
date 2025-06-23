@@ -62,8 +62,8 @@ data_info = {
     "chainlink": {
         "path": TEMPLATE_DIR.parent / "data" / "chainlink_eth_usd.csv",
         "col_name": "datetime_utc",
-        "fmt": "%Y-%m-%d %H:%M:%S",
-        "tz_aware": False,  # on récupère un datetime UTC naïf
+        "fmt": "%Y-%m-%d %H:%M:%S%z",
+        "tz_aware": True,
     },
     "uniswap": {
         "path": TEMPLATE_DIR.parent / "data" / "uniswap_eth_usd.csv",

@@ -7,7 +7,7 @@ import argparse
 import os
 import sys
 from web3 import Web3
-from datetime import datetime, UTC
+from datetime import datetime, timezone
 
 # Définir l'argument début
 parser = argparse.ArgumentParser(description="Timestamp de début.")
@@ -40,7 +40,8 @@ def convertir_timestamp(ts: int) -> str:
     """
     if ts == 0:
         return "Invalid round (ts=0)"
-    return datetime.fromtimestamp(ts, UTC).strftime('%Y-%m-%d %H:%M:%S')
+    # return datetime.fromtimestamp(ts, tz=timezone.utc).isoformat(timespec='seconds') #ISO 8601
+    return datetime.fromtimestamp(ts, tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S+00:00')
 
 def to_round_id(phase: int, aggregator_id: int) -> int:
     """
