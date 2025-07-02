@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://stebuilds.github.io/Open_Price_ETH/</loc>
+    <loc>https://fair.deepmining.ch/</loc>
+  </url>
+  <url>
+    <loc>https://fair.deepmining.ch/eth/</loc>
+  </url>
+  <url>
+    <loc>https://fair.deepmining.ch/gnosis/</loc>
   </url>
 </urlset>

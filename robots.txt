@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://stebuilds.github.io/Open_Price_ETH/sitemap.xml
+Sitemap: https://fair.deepmining.ch/sitemap.xml
